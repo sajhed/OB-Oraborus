@@ -1,0 +1,12 @@
+{
+  "id": "com.oraborus.example.readonly",
+  "name": "Read-only Example",
+  "version": "0.1.0",
+  "author": "OB Oraborus Contributors",
+  "entry": "index.js",
+  "capabilities": ["example.inspect"],
+  "permissions": ["READ_ONLY"],
+  "dependencies": [],
+  "securityRequirements": ["signed-package-for-production", "isolated-tool-scope"],
+  "signature": null
+}

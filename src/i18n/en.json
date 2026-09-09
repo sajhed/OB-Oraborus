@@ -1,0 +1,23 @@
+{
+  "tagline": "Intelligence, Inside Your World.",
+  "home": "Home",
+  "chat": "Chat",
+  "tasks": "Tasks",
+  "agents": "Agents",
+  "agentTown": "Agent Town",
+  "world": "World Explorer",
+  "research": "Research",
+  "files": "Files",
+  "memory": "Memory",
+  "automations": "Automations",
+  "developer": "Developer",
+  "market": "Market Lab",
+  "system": "System",
+  "settings": "Settings",
+  "ask": "Ask or command OB",
+  "idle": "All agents are idle.",
+  "notConnected": "NOT CONNECTED",
+  "unavailable": "UNAVAILABLE",
+  "requiresConfiguration": "REQUIRES CONFIGURATION",
+  "stopAll": "Stop all"
+}

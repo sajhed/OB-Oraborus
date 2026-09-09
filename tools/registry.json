@@ -1,0 +1,1800 @@
+[
+  {
+    "name": "system.metrics",
+    "description": "Read genuine host resource metrics",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Compare timestamped readings to sysinfo output",
+    "implementation": "system::snapshot",
+    "enabledByDefault": true
+  },
+  {
+    "name": "system.processes",
+    "description": "List genuine running processes",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Confirm process identifiers still exist",
+    "implementation": "system::processes",
+    "enabledByDefault": true
+  },
+  {
+    "name": "app.launch",
+    "description": "Launch an allowlisted application or explicit executable",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Verify a matching process appears",
+    "implementation": "windows::launch",
+    "enabledByDefault": true
+  },
+  {
+    "name": "app.focus",
+    "description": "Focus a selected Windows application",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Verify foreground window identity",
+    "implementation": "windows::focus",
+    "enabledByDefault": true
+  },
+  {
+    "name": "app.close",
+    "description": "Request a selected application to close",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Verify process or window closure",
+    "implementation": "windows::close",
+    "enabledByDefault": true
+  },
+  {
+    "name": "input.control",
+    "description": "Send a reviewed keyboard or pointer action",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Capture accessibility target and resulting UI state",
+    "implementation": "windows::input",
+    "enabledByDefault": false
+  },
+  {
+    "name": "fs.search",
+    "description": "Search approved folders by metadata and content",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Re-stat every returned path",
+    "implementation": "files::search",
+    "enabledByDefault": true
+  },
+  {
+    "name": "fs.create",
+    "description": "Create a file or folder in an approved location",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Check path type and content hash",
+    "implementation": "files::create",
+    "enabledByDefault": true
+  },
+  {
+    "name": "fs.copy",
+    "description": "Copy within approved folders",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Compare size and SHA-256",
+    "implementation": "files::copy",
+    "enabledByDefault": true
+  },
+  {
+    "name": "fs.move",
+    "description": "Move within approved folders",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Confirm source missing and destination present",
+    "implementation": "files::move_path",
+    "enabledByDefault": true
+  },
+  {
+    "name": "fs.rename",
+    "description": "Rename within an approved folder",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Confirm source missing and destination present",
+    "implementation": "files::move_path",
+    "enabledByDefault": true
+  },
+  {
+    "name": "fs.delete",
+    "description": "Delete an approved path",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "DESTRUCTIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Confirm target no longer exists",
+    "implementation": "files::delete_path",
+    "enabledByDefault": false
+  },
+  {
+    "name": "terminal.execute",
+    "description": "Execute a reviewed PowerShell command",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Use exit code and requested postcondition",
+    "implementation": "terminal::execute",
+    "enabledByDefault": false
+  },
+  {
+    "name": "browser.navigate",
+    "description": "Open a URL in the isolated automation browser",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Verify final URL and page title",
+    "implementation": "browser::run",
+    "enabledByDefault": true
+  },
+  {
+    "name": "browser.read",
+    "description": "Extract visible page text and metadata",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Return final URL and retrieval timestamp",
+    "implementation": "browser::run",
+    "enabledByDefault": true
+  },
+  {
+    "name": "browser.click",
+    "description": "Click a selector in the automation browser",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Verify expected selector, URL, or text",
+    "implementation": "browser::run",
+    "enabledByDefault": false
+  },
+  {
+    "name": "browser.fill",
+    "description": "Fill a selector without submitting",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Read back non-secret field state",
+    "implementation": "browser::run",
+    "enabledByDefault": false
+  },
+  {
+    "name": "browser.download",
+    "description": "Download through an approved browser workflow",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Check downloaded file size and hash",
+    "implementation": "browser::run",
+    "enabledByDefault": false
+  },
+  {
+    "name": "screen.capture",
+    "description": "Capture a selected screen on demand",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Verify image dimensions and timestamp",
+    "implementation": "vision::capture",
+    "enabledByDefault": false
+  },
+  {
+    "name": "ocr.read",
+    "description": "Read text using an installed OCR engine",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Return engine, confidence where available, and image hash",
+    "implementation": "vision::ocr",
+    "enabledByDefault": false
+  },
+  {
+    "name": "vision.analyze",
+    "description": "Analyze an authorized image with a configured vision model",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Attach provider and model metadata",
+    "implementation": "providers::vision",
+    "enabledByDefault": false
+  },
+  {
+    "name": "voice.listen",
+    "description": "Capture speech while the visible microphone indicator is active",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Return engine and bounded audio interval",
+    "implementation": "voice::listen",
+    "enabledByDefault": false
+  },
+  {
+    "name": "voice.speak",
+    "description": "Speak text through an installed local engine",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Confirm engine process exit status",
+    "implementation": "voice::speak",
+    "enabledByDefault": false
+  },
+  {
+    "name": "memory.search",
+    "description": "Search approved local memory semantically",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Return relevance and source metadata",
+    "implementation": "memory::search",
+    "enabledByDefault": true
+  },
+  {
+    "name": "memory.write",
+    "description": "Store a user-approved non-secret memory",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Read back stored memory identifier",
+    "implementation": "memory::store",
+    "enabledByDefault": true
+  },
+  {
+    "name": "memory.delete",
+    "description": "Delete selected memories",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "DESTRUCTIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Confirm identifiers no longer exist",
+    "implementation": "memory::delete",
+    "enabledByDefault": false
+  },
+  {
+    "name": "memory.export",
+    "description": "Export selected non-secret memory",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Validate archive manifest excludes secrets",
+    "implementation": "memory::export",
+    "enabledByDefault": false
+  },
+  {
+    "name": "document.extract",
+    "description": "Extract text from supported local documents",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Return parser, bytes read, and content hash",
+    "implementation": "documents::extract",
+    "enabledByDefault": true
+  },
+  {
+    "name": "document.compare",
+    "description": "Compare extracted document content",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Include both source hashes",
+    "implementation": "documents::compare",
+    "enabledByDefault": true
+  },
+  {
+    "name": "document.create",
+    "description": "Create a requested document with a real serializer",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Open, parse, and hash output",
+    "implementation": "documents::create",
+    "enabledByDefault": true
+  },
+  {
+    "name": "data.inspect",
+    "description": "Inspect real CSV and spreadsheet values",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Report row count and parsing errors",
+    "implementation": "data::inspect",
+    "enabledByDefault": true
+  },
+  {
+    "name": "data.statistics",
+    "description": "Compute statistics from parsed values",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Recompute from source hashes",
+    "implementation": "data::statistics",
+    "enabledByDefault": true
+  },
+  {
+    "name": "research.search",
+    "description": "Search through a configured retrieval provider",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Preserve source URLs and timestamps",
+    "implementation": "research::search",
+    "enabledByDefault": false
+  },
+  {
+    "name": "research.read",
+    "description": "Read an explicit public URL",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 120000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Preserve canonical URL and content hash",
+    "implementation": "research::read",
+    "enabledByDefault": true
+  },
+  {
+    "name": "github.read",
+    "description": "Use public or authorized GitHub read APIs",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Preserve GitHub API URL and response status",
+    "implementation": "github::read",
+    "enabledByDefault": true
+  },
+  {
+    "name": "github.write",
+    "description": "Use an authorized GitHub write API",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "CRITICAL",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Require API confirmation and read back result",
+    "implementation": "github::write",
+    "enabledByDefault": false
+  },
+  {
+    "name": "git.diff",
+    "description": "Read a local Git diff in an approved repository",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Hash repository root and diff",
+    "implementation": "terminal::git_diff",
+    "enabledByDefault": true
+  },
+  {
+    "name": "security.evaluate",
+    "description": "Classify an action and enforce policy",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Write immutable audit decision",
+    "implementation": "security::evaluate",
+    "enabledByDefault": true
+  },
+  {
+    "name": "security.scan",
+    "description": "Scan untrusted content and tool input",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Return matched rules without executing content",
+    "implementation": "security::scan",
+    "enabledByDefault": true
+  },
+  {
+    "name": "verification.check",
+    "description": "Check a declared operation postcondition",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Record evidence and timestamp",
+    "implementation": "verification::check",
+    "enabledByDefault": true
+  },
+  {
+    "name": "audit.read",
+    "description": "Read redacted audit records",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Ensure secret-field redaction",
+    "implementation": "audit::read",
+    "enabledByDefault": true
+  },
+  {
+    "name": "agent.plan",
+    "description": "Build a dependency-aware task graph",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Validate acyclic dependencies",
+    "implementation": "agents::plan",
+    "enabledByDefault": true
+  },
+  {
+    "name": "task.read",
+    "description": "Read task state and evidence",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Use persisted task record",
+    "implementation": "tasks::read",
+    "enabledByDefault": true
+  },
+  {
+    "name": "task.write",
+    "description": "Update task plan or status",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Read back task revision",
+    "implementation": "tasks::write",
+    "enabledByDefault": true
+  },
+  {
+    "name": "tool.dispatch",
+    "description": "Dispatch a registered scoped tool",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Use tool-specific verification",
+    "implementation": "tools::dispatch",
+    "enabledByDefault": true
+  },
+  {
+    "name": "knowledge.read",
+    "description": "Read the local knowledge graph",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Return entity and relation identifiers",
+    "implementation": "knowledge::read",
+    "enabledByDefault": true
+  },
+  {
+    "name": "knowledge.write",
+    "description": "Add an approved graph entity or relation",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Read back inserted relationship",
+    "implementation": "knowledge::write",
+    "enabledByDefault": false
+  },
+  {
+    "name": "automation.read",
+    "description": "Read automation definitions and runs",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Use persisted workflow version",
+    "implementation": "automation::read",
+    "enabledByDefault": true
+  },
+  {
+    "name": "automation.write",
+    "description": "Create or change a bounded automation",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Validate tools, scope, risk, and limits",
+    "implementation": "automation::write",
+    "enabledByDefault": false
+  },
+  {
+    "name": "notification.send",
+    "description": "Show a local Windows notification",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Confirm notification API acceptance",
+    "implementation": "notifications::send",
+    "enabledByDefault": true
+  },
+  {
+    "name": "message.draft",
+    "description": "Draft a message without sending",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Return draft only",
+    "implementation": "messaging::draft",
+    "enabledByDefault": true
+  },
+  {
+    "name": "message.send",
+    "description": "Send through an authorized official connector",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "CRITICAL",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Require connector delivery confirmation",
+    "implementation": "messaging::send",
+    "enabledByDefault": false
+  },
+  {
+    "name": "calendar.read",
+    "description": "Read an authorized calendar connector",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Preserve event identifiers and source",
+    "implementation": "calendar::read",
+    "enabledByDefault": false
+  },
+  {
+    "name": "calendar.write",
+    "description": "Create or update an authorized calendar event",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SENSITIVE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Read back event identifier",
+    "implementation": "calendar::write",
+    "enabledByDefault": false
+  },
+  {
+    "name": "media.control",
+    "description": "Control an active Windows media session",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "SAFE",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Read back session playback state",
+    "implementation": "media::control",
+    "enabledByDefault": false
+  },
+  {
+    "name": "api_registry.read",
+    "description": "Read configured public API metadata",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Return last health timestamp",
+    "implementation": "api_registry::read",
+    "enabledByDefault": true
+  },
+  {
+    "name": "api.call",
+    "description": "Call an enabled validated API adapter",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Validate response schema and HTTP status",
+    "implementation": "api_registry::call",
+    "enabledByDefault": false
+  },
+  {
+    "name": "hardware.profile",
+    "description": "Read host CPU, GPU, RAM, disk, and OS profile",
+    "inputSchema": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "outputSchema": {
+      "type": "object",
+      "required": [
+        "state"
+      ],
+      "properties": {
+        "state": {
+          "type": "string"
+        },
+        "data": {},
+        "verification": {
+          "type": "object"
+        }
+      }
+    },
+    "permission": "READ_ONLY",
+    "timeoutMs": 30000,
+    "agentAccess": [
+      "*"
+    ],
+    "verificationMethod": "Preserve measurement timestamp",
+    "implementation": "system::hardware_profile",
+    "enabledByDefault": true
+  }
+]

@@ -1,0 +1,15 @@
+node_modules/
+dist/
+target/
+src-tauri/target/
+.env
+.env.local
+*.log
+*.db
+*.db-shm
+*.db-wal
+playwright-report/
+test-results/
+artifacts/
+.DS_Store
+Thumbs.db

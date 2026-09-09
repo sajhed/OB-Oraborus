@@ -1,0 +1,116 @@
+[
+  {
+    "apiId": "open-meteo",
+    "name": "Open-Meteo",
+    "category": "Weather",
+    "baseUrl": "https://api.open-meteo.com/v1",
+    "authentication": "None",
+    "https": true,
+    "cors": "Yes",
+    "status": "UNKNOWN",
+    "lastChecked": null,
+    "rateLimit": "Fair use",
+    "documentationUrl": "https://open-meteo.com/en/docs",
+    "adapterName": "open_meteo",
+    "capabilities": [
+      "forecast"
+    ],
+    "enabled": false
+  },
+  {
+    "apiId": "rest-countries",
+    "name": "REST Countries",
+    "category": "Countries",
+    "baseUrl": "https://restcountries.com/v3.1",
+    "authentication": "None",
+    "https": true,
+    "cors": "Yes",
+    "status": "UNKNOWN",
+    "lastChecked": null,
+    "rateLimit": "Service policy",
+    "documentationUrl": "https://restcountries.com/",
+    "adapterName": "rest_countries",
+    "capabilities": [
+      "country_lookup"
+    ],
+    "enabled": false
+  },
+  {
+    "apiId": "world-time",
+    "name": "WorldTimeAPI",
+    "category": "Time",
+    "baseUrl": "https://worldtimeapi.org/api",
+    "authentication": "None",
+    "https": true,
+    "cors": "Varies",
+    "status": "UNKNOWN",
+    "lastChecked": null,
+    "rateLimit": "Service policy",
+    "documentationUrl": "https://worldtimeapi.org/",
+    "adapterName": "world_time",
+    "capabilities": [
+      "timezone"
+    ],
+    "enabled": false
+  },
+  {
+    "apiId": "github-public",
+    "name": "GitHub REST API",
+    "category": "Development",
+    "baseUrl": "https://api.github.com",
+    "authentication": "Optional token",
+    "https": true,
+    "cors": "Yes",
+    "status": "UNKNOWN",
+    "lastChecked": null,
+    "rateLimit": "60/hour unauthenticated",
+    "documentationUrl": "https://docs.github.com/en/rest",
+    "adapterName": "github",
+    "capabilities": [
+      "repositories",
+      "issues",
+      "pull_requests",
+      "releases",
+      "commits",
+      "contents"
+    ],
+    "enabled": true
+  },
+  {
+    "apiId": "open-library",
+    "name": "Open Library",
+    "category": "Books",
+    "baseUrl": "https://openlibrary.org",
+    "authentication": "None",
+    "https": true,
+    "cors": "Varies",
+    "status": "UNKNOWN",
+    "lastChecked": null,
+    "rateLimit": "Documented etiquette",
+    "documentationUrl": "https://openlibrary.org/developers/api",
+    "adapterName": "open_library",
+    "capabilities": [
+      "book_search"
+    ],
+    "enabled": false
+  },
+  {
+    "apiId": "frankfurter",
+    "name": "Frankfurter",
+    "category": "Currency",
+    "baseUrl": "https://api.frankfurter.app",
+    "authentication": "None",
+    "https": true,
+    "cors": "Yes",
+    "status": "UNKNOWN",
+    "lastChecked": null,
+    "rateLimit": "Service policy",
+    "documentationUrl": "https://www.frankfurter.app/docs/",
+    "adapterName": "frankfurter",
+    "capabilities": [
+      "rates",
+      "conversion"
+    ],
+    "enabled": false
+  }
+]

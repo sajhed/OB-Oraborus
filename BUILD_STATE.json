@@ -1,0 +1,278 @@
+{
+  "schemaVersion": 1,
+  "product": "OB Oraborus",
+  "version": "0.1.0",
+  "currentStatus": "source_validated_native_windows_build_pending",
+  "generatedFiles": [
+    ".env.example",
+    ".github/workflows/windows-build.yml",
+    ".gitignore",
+    "AGENTS.md",
+    "ARCHITECTURE.md",
+    "BUILD_STATE.json",
+    "DEVELOPMENT.md",
+    "INTEGRATIONS.md",
+    "LICENSE",
+    "PRIVACY.md",
+    "README.md",
+    "SECURITY.md",
+    "SOURCE_MANIFEST.json",
+    "THIRD_PARTY_NOTICES.md",
+    "TOOLS.md",
+    "TROUBLESHOOTING.md",
+    "agents/registry.json",
+    "browser/package.json",
+    "browser/runner.mjs",
+    "docs/PORTABLE_MODE.md",
+    "docs/qa/ui-desktop.png",
+    "docs/qa/ui-mobile.png",
+    "docs/qa/visual-checks.json",
+    "docs/ui-preview.html",
+    "index.html",
+    "integrations/public-api-registry.json",
+    "package-lock.json",
+    "package.json",
+    "plugins/example/index.js",
+    "plugins/example/manifest.json",
+    "scripts/__pycache__/generate_icons.cpython-313.pyc",
+    "scripts/__pycache__/validate_project.cpython-313.pyc",
+    "scripts/bootstrap-windows.ps1",
+    "scripts/build-windows.ps1",
+    "scripts/generate_icons.py",
+    "scripts/qa-smoke.ps1",
+    "scripts/validate_project.py",
+    "src-tauri/Cargo.toml",
+    "src-tauri/build.rs",
+    "src-tauri/capabilities/default.json",
+    "src-tauri/icons/128x128.png",
+    "src-tauri/icons/128x128@2x.png",
+    "src-tauri/icons/32x32.png",
+    "src-tauri/icons/icon.ico",
+    "src-tauri/icons/icon.png",
+    "src-tauri/migrations/0001_init.sql",
+    "src-tauri/src/agents.rs",
+    "src-tauri/src/api_registry.rs",
+    "src-tauri/src/audit.rs",
+    "src-tauri/src/automation.rs",
+    "src-tauri/src/browser.rs",
+    "src-tauri/src/commands.rs",
+    "src-tauri/src/data_analysis.rs",
+    "src-tauri/src/db.rs",
+    "src-tauri/src/documents.rs",
+    "src-tauri/src/emotional_context.rs",
+    "src-tauri/src/error.rs",
+    "src-tauri/src/files.rs",
+    "src-tauri/src/github.rs",
+    "src-tauri/src/lib.rs",
+    "src-tauri/src/main.rs",
+    "src-tauri/src/memory.rs",
+    "src-tauri/src/model_router.rs",
+    "src-tauri/src/models.rs",
+    "src-tauri/src/plugins.rs",
+    "src-tauri/src/providers/gemini.rs",
+    "src-tauri/src/providers/mod.rs",
+    "src-tauri/src/providers/ollama.rs",
+    "src-tauri/src/providers/openai_compatible.rs",
+    "src-tauri/src/research.rs",
+    "src-tauri/src/secrets.rs",
+    "src-tauri/src/security.rs",
+    "src-tauri/src/state.rs",
+    "src-tauri/src/system_monitor.rs",
+    "src-tauri/src/terminal.rs",
+    "src-tauri/src/tool_registry.rs",
+    "src-tauri/src/tray.rs",
+    "src-tauri/src/vision.rs",
+    "src-tauri/src/voice.rs",
+    "src-tauri/src/windows_control.rs",
+    "src-tauri/tauri.conf.json",
+    "src-tauri/tests/contracts.rs",
+    "src/app/App.tsx",
+    "src/app/navigation.ts",
+    "src/components/BrandMark.tsx",
+    "src/components/CommandBar.tsx",
+    "src/components/OraCore.tsx",
+    "src/components/Sidebar.tsx",
+    "src/components/StatusBar.tsx",
+    "src/components/TaskInspector.tsx",
+    "src/hooks/useDesktopEvents.ts",
+    "src/i18n/bn.json",
+    "src/i18n/en.json",
+    "src/i18n/hi.json",
+    "src/i18n/index.ts",
+    "src/lib/backend.ts",
+    "src/lib/format.test.ts",
+    "src/lib/format.ts",
+    "src/main.tsx",
+    "src/store/useObStore.ts",
+    "src/styles.css",
+    "src/types.ts",
+    "src/views/AgentTownView.tsx",
+    "src/views/ChatView.tsx",
+    "src/views/HomeView.tsx",
+    "src/views/ModuleView.tsx",
+    "src/views/SettingsView.tsx",
+    "src/views/SystemView.tsx",
+    "src/views/WorldExplorerView.tsx",
+    "src/vite-env.d.ts",
+    "tests/security_cases.json",
+    "tools/registry.json",
+    "tsconfig.app.json",
+    "tsconfig.json",
+    "tsconfig.node.json",
+    "vite.config.ts"
+  ],
+  "pendingFiles": [
+    "artifacts/OB-Oraborus-Setup.exe",
+    "artifacts/OB-Oraborus-Portable.exe"
+  ],
+  "buildErrors": [],
+  "fixedErrors": [
+    {
+      "area": "provider_health",
+      "message": "Preserved provider errors while classifying connection state."
+    },
+    {
+      "area": "app_snapshot",
+      "message": "Corrected owned status-string construction."
+    },
+    {
+      "area": "github",
+      "message": "Corrected official API endpoint construction."
+    },
+    {
+      "area": "human_approval",
+      "message": "Added expiring approval controls and continuation handlers."
+    },
+    {
+      "area": "local_analysis",
+      "message": "Added real CSV statistics and verified screen-capture paths."
+    }
+  ],
+  "testsCompleted": [
+    {
+      "name": "required_file_set",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "json_parsing",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "thirty_agents",
+      "status": "pass",
+      "detail": "count=30"
+    },
+    {
+      "name": "tool_names_unique",
+      "status": "pass",
+      "detail": "count=58"
+    },
+    {
+      "name": "agent_tool_references",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "risk_classes",
+      "status": "pass",
+      "detail": "invalid risk class present"
+    },
+    {
+      "name": "agent_contracts",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "tool_contracts",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "database_table_contract",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "database_indexes",
+      "status": "pass",
+      "detail": "count=10"
+    },
+    {
+      "name": "identity_and_completeness_scan",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "secret_literal_scan",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "rust_module_graph",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "frontend_local_imports",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "build_commands",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "product_identity",
+      "status": "pass",
+      "detail": ""
+    },
+    {
+      "name": "icon_set",
+      "status": "pass",
+      "detail": ""
+    }
+  ],
+  "integrationsConfigured": [
+    {
+      "name": "Ollama",
+      "status": "runtime_health_check"
+    },
+    {
+      "name": "Gemini",
+      "status": "requires_user_credential"
+    },
+    {
+      "name": "OpenAI-compatible",
+      "status": "requires_endpoint_configuration"
+    },
+    {
+      "name": "Playwright",
+      "status": "requires_browser_runtime_installation"
+    },
+    {
+      "name": "Tesseract",
+      "status": "optional_host_dependency"
+    },
+    {
+      "name": "Piper / SAPI / Coqui-compatible / Kokoro-compatible / eSpeak NG",
+      "status": "detected_at_runtime"
+    },
+    {
+      "name": "Whisper / faster-whisper / Vosk-compatible",
+      "status": "detected_at_runtime"
+    },
+    {
+      "name": "Messaging connectors",
+      "status": "requires_official_connector"
+    },
+    {
+      "name": "Market execution",
+      "status": "disabled"
+    }
+  ],
+  "nextOperation": "Run scripts/build-windows.ps1 on Windows x64 with Rust MSVC and WebView2.",
+  "updatedAt": "2026-09-09T10:32:05.976613+00:00"
+}
